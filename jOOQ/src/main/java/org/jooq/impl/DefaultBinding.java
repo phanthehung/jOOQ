@@ -4280,7 +4280,7 @@ public class DefaultBinding<T, U> implements Binding<T, U> {
             catch (Exception e) {
 
                 // [#11823]
-                if (type.getComponentType().getSimpleName().equals("UnknownType"))
+                if ("UnknownType".equals(type.getComponentType().getSimpleName()))
                     throw new DataTypeException("Error while creating array for UnknownType. Please provide an explicit Class<U> type to your converter, see https://github.com/jOOQ/jOOQ/issues/11823", e);
                 else
                     throw new DataTypeException("Error while creating array", e);

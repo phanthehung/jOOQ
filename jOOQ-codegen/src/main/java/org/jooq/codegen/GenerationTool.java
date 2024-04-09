@@ -1258,14 +1258,14 @@ public class GenerationTool {
                   + "See https://github.com/jOOQ/jOOQ/issues/7419 for details");
             }
 
-            else if (className.equals("org.jooq.meta.extensions.liquibase.LiquibaseDatabase")) {
+            else if ("org.jooq.meta.extensions.liquibase.LiquibaseDatabase".equals(className)) {
                 log.warn("Type not found", message =
                     "Your configured database type was not found: " + className + ".\n"
                   + "- Please make sure the jooq-meta-extensions-liquibase dependency is on your classpath.\n"
                   + "- In jOOQ 3.14, the dependency name has changed, see https://github.com/jOOQ/jOOQ/issues/10331");
             }
 
-            else if (className.equals("org.jooq.meta.extensions.jpa.JPADatabase")) {
+            else if ("org.jooq.meta.extensions.jpa.JPADatabase".equals(className)) {
                 log.warn("Type not found", message =
                     "Your configured database type was not found: " + className + ".\n"
                   + "- Please make sure the jooq-meta-extensions-hibernate dependency is on your classpath.\n"

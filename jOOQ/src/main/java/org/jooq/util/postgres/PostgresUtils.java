@@ -372,7 +372,7 @@ public class PostgresUtils {
 
                     // [#13169] Consume "null", if this is an array literal
                     else if ((c == 'n' || c == 'N') && (i + 4 < input.length() && open == '{')
-                        && input.substring(i, i + 4).equalsIgnoreCase("null")) {
+                        && "null".equalsIgnoreCase(input.substring(i, i + 4))) {
                         values.add(null);
                         i += 3;
                         state = PG_OBJECT_AFTER_VALUE;
