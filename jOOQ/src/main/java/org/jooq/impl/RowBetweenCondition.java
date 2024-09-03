@@ -717,9 +717,13 @@ implements
 
         else {
                            ctx.visit(row);
-            if (not)       ctx.sql(" ").visit(K_NOT);
+            if (not)       {
+                ctx.sql(" ").visit(K_NOT);
+            }
                            ctx.sql(" ").visit(K_BETWEEN);
-            if (symmetric) ctx.sql(" ").visit(K_SYMMETRIC);
+            if (symmetric) {
+                ctx.sql(" ").visit(K_SYMMETRIC);
+            }
                            ctx.sql(" ").visit(minValue);
                            ctx.sql(" ").visit(K_AND);
                            ctx.sql(" ").visit(maxValue);
