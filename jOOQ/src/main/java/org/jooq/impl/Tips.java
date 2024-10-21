@@ -37,6 +37,7 @@
  */
 package org.jooq.impl;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -114,6 +115,6 @@ final class Tips {
     };
 
     static String randomTip() {
-        return TIPS[new Random().nextInt(TIPS.length)];
+        return TIPS[new SecureRandom().nextInt(TIPS.length)];
     }
 }
