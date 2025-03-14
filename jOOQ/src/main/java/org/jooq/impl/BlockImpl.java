@@ -501,7 +501,9 @@ final class BlockImpl extends AbstractRowCountQuery implements Block {
 
     private static final void semicolonAfterStatement(Context<?> ctx, Statement s) {
         if (s instanceof Block)
-            return;
+            {
+                return;
+            }
 
 
 
