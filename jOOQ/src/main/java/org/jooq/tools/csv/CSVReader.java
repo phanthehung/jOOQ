@@ -15,6 +15,7 @@
  */
 package org.jooq.tools.csv;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
@@ -216,11 +217,11 @@ public class CSVReader implements Closeable, Iterator<String[]> {
     private String getNextLine() throws IOException {
         if (!this.linesSkiped) {
             for (int i = 0; i < skipLines; i++) {
-                br.readLine();
+                BoundedLineReader.readLine(br, 5_000_000);
             }
             this.linesSkiped = true;
         }
-        String nextLine = br.readLine();
+        String nextLine = BoundedLineReader.readLine(br, 5_000_000);
         if (nextLine == null) {
             hasNext = false;
         }
