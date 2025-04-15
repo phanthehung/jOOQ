@@ -37,6 +37,8 @@
  */
 package org.jooq.util.jaxb.tools;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import static java.util.Arrays.asList;
 
 import java.io.File;
@@ -457,7 +459,7 @@ public final class MiniJAXB {
             if (PROVIDED_SCHEMAS.containsKey(namespace))
                 url = type.getResource(PROVIDED_SCHEMAS.get(namespace));
             else
-                url = new URL(namespace);
+                url = Urls.create(namespace, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
 
             if (url != null) {
                 SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
