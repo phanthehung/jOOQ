@@ -37,6 +37,7 @@
  */
 package org.jooq.meta.duckdb;
 
+import java.security.SecureRandom;
 import static org.jooq.impl.DSL.name;
 import static org.jooq.meta.duckdb.system.main.Tables.DUCKDB_COLUMNS;
 
@@ -71,7 +72,7 @@ public class DuckDBUDTDefinition extends AbstractUDTDefinition {
         // A current limitation of DuckDB 0.8.1 requires a workaround where we create
         // a dummy table containing a reference to the UDT in order to reverse engineer
         // its structure, see https://github.com/duckdb/duckdb/discussions/8832
-        Name name = name("dummy_" + Math.abs(new Random().nextInt()));
+        Name name = name("dummy_" + Math.abs(new SecureRandom().nextInt()));
 
         try {
             create().createTable(name)
